@@ -1,4 +1,4 @@
-export class BezirkElement extends HTMLElement 
+export class Bezirk extends HTMLElement 
 {
     constructor() { super(); }
 
@@ -13,7 +13,10 @@ export class BezirkElement extends HTMLElement
         for (let line of lines) 
         {
             let parts = line.split(",");
-            let zab = new zAbOrdnung(parts[0], parts[1]);
+            const zab = new ZAbOrdnung();
+            zab.zAb = parts[0];
+            zab.gMapsUrl = parts[1];
+            this.appendChild(zab);
             this.bz31.push(zab);
         }
     };
@@ -52,14 +55,9 @@ export class ZAbOrdnung extends HTMLElement
         return this._zAb;
     }
     set zAb(value) {
-        if (typeof value !== 'number') {
-            const parsed = parseInt(value, 10);
-            value = isNaN(parsed) ? value : parsed;
-            this.getElementsByTagName("h1")[0].textContent = value;
-        }
-
+        this._zAb = value;
+        this.getElementsByTagName("h1")[0].textContent = value;
     }
-
     get gMapsUrl() {
         return this._gMapsUrl;
     }
@@ -77,6 +75,6 @@ export class ZAbOrdnung extends HTMLElement
 
 export function registerAll()  
 { 
-    customElements.define('bezirk-element', BezirkElement);
+    customElements.define('be-zirk', Bezirk);
     customElements.define('zab-ordnung', ZAbOrdnung);
  }
