@@ -6,9 +6,10 @@ export class Bezirk extends HTMLElement
 
     connectedCallback()
     {
-        let text;
+        
         console.log("connectedCallback created text");
-        this.getBezirkAsync().then(t => { text = t;});
+        this.getBezirkAsync().then(text => 
+        { 
         let lines = text.split("\n");
         console.log(lines.length);
         for (let line of lines) 
@@ -20,6 +21,7 @@ export class Bezirk extends HTMLElement
             this.appendChild(zab);
             this.bz31.push(zab);
         }
+        });
     };
 
     async getBezirkAsync() {
