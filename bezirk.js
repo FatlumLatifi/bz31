@@ -68,7 +68,7 @@ export class ZAbOrdnung extends HTMLElement
         theA.setAttribute("href", value);
         
         theA.addEventListener('click', function(event) {
-             this.setAttribute("status", "geklickt"); localStorage.setItem(`${this.zab}`, "geklickt"); 
+             this.setAttribute("status", "geklickt"); localStorage.setItem(this._zAb, "geklickt"); 
         });
         const theStatus = localStorage.getItem(`${this.zAb}`) ?? "";
         switch (theStatus) {
