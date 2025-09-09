@@ -20,14 +20,13 @@ zab-ordnung
     gap: 1rem;
 }
 
-zab-ordnung[geklickt]
-{
+zab-ordnung[status="geklickt"],
+zab-ordnung[beendet] {
     background-color: lightslategray;
     font-weight: bolder;
 }
 
-zab-ordnung[beendet]
-{
+zab-ordnung[status="beendet"] {
     background-color: darkgreen;
     height: 5vh;
     font-size: smaller;
