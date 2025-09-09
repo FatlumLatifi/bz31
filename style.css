@@ -20,8 +20,23 @@ zab-ordnung
     gap: 1rem;
 }
 
+zab-ordnung[geklickt]
+{
+    background-color: lightslategray;
+    font-weight: bolder;
+}
+
+zab-ordnung[beendet]
+{
+    background-color: darkgreen;
+    height: 5vh;
+    font-size: smaller;
+    overflow: hidden;
+    color: white;
+}
 svg 
 {
     width: 10vw;
     height: 10vw;
 }
+
