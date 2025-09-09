@@ -63,15 +63,23 @@ export class ZAbOrdnung extends HTMLElement
     }
     set gMapsUrl(value) {
         this._gMapsUrl = value;
+
         const theA = this.getElementsByTagName("a")[0];
         theA.setAttribute("href", value);
         
         theA.addEventListener('click', function(event) {
              this.setAttribute("status", "geklickt"); localStorage.setItem(`${Pthis.zab}`, "geklickt"); 
         });
-
-        if (localStorage.getItem(`${this.zAb}`) === "geklickt") {
-            this.setAttribute("status", "geklickt");
+        const theStatus = localStorage.getItem(`${this.zAb}`) ?? "";
+        switch (theStatus) {
+            case "geklickt":
+                this.setAttribute("status", "geklickt");
+                break;
+            case "beendet":
+                this.setAttribute("status", "beendet");
+                break;
+            default:
+                break;
         }
     }
 }
