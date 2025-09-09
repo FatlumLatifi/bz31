@@ -47,7 +47,7 @@ export class ZAbOrdnung extends HTMLElement
     setId(x)
     {
         this.zAb = x;
-         const theStatus = localStorage.getItem(`${x}`) ?? "";
+        const theStatus = localStorage.getItem(`${x}`);
         switch (theStatus) {
             case "geklickt":
                 this.setAttribute("status", "geklickt");
