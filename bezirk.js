@@ -25,6 +25,7 @@ export class Bezirk extends HTMLElement
         console.log("fetching csv");
         const result = await fetch("./31.csv");
         const text = await result.text();
+        console.log(text);
         return text;
     }
 
