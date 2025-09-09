@@ -62,13 +62,15 @@ export class ZAbOrdnung extends HTMLElement
         this.getElementsByTagName("a")[0].addEventListener('click', function(event) 
         {
              this.setAttribute("status", "geklickt"); localStorage.setItem(`${x}`, "geklickt"); 
-              const ender = this.getElementsByTagName("button")[1];
+        });
+        
+        const ender = this.getElementsByTagName("button")[1];
         ender.onclick = () => 
         {
             this.setAttribute("status", "beendet");
             localStorage.setItem(`${x}`, "beendet");
         }
-        });
+        
 
     }
 
