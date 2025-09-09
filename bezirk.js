@@ -4,10 +4,10 @@ export class BezirkElement extends HTMLElement
 
     bz31 = [];
 
-    async connectedCallback()
+    connectedCallback()
     {
-        let result = await fetch ("31.csv");
-        let text = await result.text();
+        let text;
+        this.getBezirkAsync().then(t => { text = t;});
         let lines = text.split("\n");
         for (let line of lines) 
         {
@@ -15,7 +15,15 @@ export class BezirkElement extends HTMLElement
             let zab = new zAbOrdnung(parts[0], parts[1]);
             this.bz31.push(zab);
         }
+    };
+
+    async getBezirkAsync() {
+        const result = await fetch("31.csv");
+        const text = await result.text();
+        return text;
     }
+
+   
 
 }
 
