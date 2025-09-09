@@ -14,7 +14,7 @@ export class Bezirk extends HTMLElement
         {
             let parts = line.split(",");
             const zab = new ZAbOrdnung();
-            zab.zAb = parts[0];
+            zab.setId(parts[0]);
             zab.gMapsUrl = parts[1];
             this.appendChild(zab);
         }
