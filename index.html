@@ -3,46 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <title>Bz31</title>
 </head>
 <body>
-    <div id="map" style="height: 500px; width: 100%; margin-top: 20px;"></div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        // Initialize map after getting geolocation
-        function initMap(lat, lng) {
-            var map = L.map('map').setView([lat, lng], 12);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-            // Add marker at user's location
-            L.marker([lat, lng]).addTo(map)
-                .bindPopup('You are here').openPopup();
-            // Draw 15km radius circle
-            L.circle([lat, lng], {
-                color: 'blue',
-                fillColor: '#3fa9f5',
-                fillOpacity: 0.2,
-                radius: 15000
-            }).addTo(map);
-        }
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                initMap(position.coords.latitude, position.coords.longitude);
-            }, function() {
-                // Fallback: center on a default location (e.g., Null Island)
-                initMap(0, 0);
-            });
-        } else {
-            // Geolocation not supported
-            initMap(0, 0);
-        }
-    </script>
 </body>
 </html>
