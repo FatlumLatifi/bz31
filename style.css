@@ -13,8 +13,8 @@ html, body, div, button, a
 
 zab-ordnung
 {
-    width: 100%;
     padding: 10%;
+    width: 90vw;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 1rem;
