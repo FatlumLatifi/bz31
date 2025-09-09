@@ -10,6 +10,7 @@ export class Bezirk extends HTMLElement
         console.log("connectedCallback created text");
         this.getBezirkAsync().then(t => { text = t;});
         let lines = text.split("\n");
+        console.log(lines.length);
         for (let line of lines) 
         {
             let parts = line.split(",");
