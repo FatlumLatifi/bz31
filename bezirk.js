@@ -65,7 +65,10 @@ export class ZAbOrdnung extends HTMLElement
         this._gMapsUrl = value;
         const theA = this.getElementsByTagName("a")[0];
         theA.setAttribute("href", value);
-        theA.onclick = () => { this.setAttribute("status", "geklickt"); localStorage.setItem(`${Pthis.zab}`, "geklickt");  };
+        
+        theA.addEventListener('click', function(event) {
+             this.setAttribute("status", "geklickt"); localStorage.setItem(`${Pthis.zab}`, "geklickt"); 
+        });
         if (localStorage.getItem(`${this.zAb}`) === "clicked") {
             this.setAttribute("status", "geklickt");
         }
