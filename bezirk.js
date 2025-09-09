@@ -45,6 +45,7 @@ export class ZAbOrdnung extends HTMLElement
         ender.onclick = () => 
         {
             this.setAttribute("status", "beendet");
+            localStorage.setItem(this.getElementsByTagName("h1")[0].textContent, "beendet");
         }
     }
 
