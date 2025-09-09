@@ -7,6 +7,7 @@ export class BezirkElement extends HTMLElement
     connectedCallback()
     {
         let text;
+        console.log("connectedCallback created text");
         this.getBezirkAsync().then(t => { text = t;});
         let lines = text.split("\n");
         for (let line of lines) 
@@ -18,7 +19,8 @@ export class BezirkElement extends HTMLElement
     };
 
     async getBezirkAsync() {
-        const result = await fetch("31.csv");
+        console.log("fetching csv");
+        const result = await fetch("./31.csv");
         const text = await result.text();
         return text;
     }
